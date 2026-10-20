@@ -1,0 +1,56 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "auto-smart-cf",
+	"main": "worker/index.ts",
+	"compatibility_date": "2026-03-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	// 1. Phục vụ Frontend React Build (Vite)
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	// 2. Cloudflare D1 Database
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "auto-smart-db",
+			"database_id": "86cb6c40-a945-4dc6-95fd-7b2475aa5afa"
+		},
+		{
+			"binding": "auto_smart_db",
+			"database_name": "auto-smart-db",
+			"database_id": "86cb6c40-a945-4dc6-95fd-7b2475aa5afa",
+			"remote": true
+		}
+	],
+	// 3. Cloudflare R2 Image Storage
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "auto-smart-cars"
+		},
+		{
+			"bucket_name": "auto-smart-cars",
+			"binding": "auto_smart_cars",
+			"remote": true
+		}
+	],
+	// 4. Cloudflare Workers AI Binding
+	"ai": {
+		"binding": "AI"
+	},
+	// 5. Cloudflare Vectorize Index (BGE-M3: 1024 dimensions)
+	"vectorize": [
+		{
+			"binding": "VECTORIZE",
+			"index_name": "auto-smart-embeddings",
+			"remote": true
+		}
+	],
+	// 6. Environment Variables & Secrets
+	"vars": {
+		"ENVIRONMENT": "production"
+	}
+}

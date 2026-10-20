@@ -1,0 +1,6 @@
+{
+  "name": "AUTO SMART - Hệ Thống Mua Bán & Tư Vấn Ô Tô Thông Minh",
+  "description": "Showroom ô tô trực tuyến cao cấp tích hợp Chatbot AI RAG tư vấn xe thông minh, so sánh xe, đặt lịch lái thử và quản lý showroom trên nền tảng Cloudflare.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
